@@ -60,3 +60,106 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 "# pINICIOD" 
+
+## Acerca de pINICIOD
+
+pINICIOD pretende ser una aplicación básica de Laravel sin usar Jetstream, algunas características:
+- **Usa Tailwind CSS.**
+- **Usa componentes de Flowbite.**
+- **Implementa un drawer de Flowbite (armado por mí).**
+- **Usa un esquema propio de validación de los usuarios de una BD.**
+
+## Crear proyecto inicial
+
+Crear el proyecto sin Jetstream:
+
+```
+laravel new pINICIOD
+```
+
+En las preguntas del instalador elegir siempre el valor por defecto.
+
+## Crear el repositorio en GITHUB
+
+Crear el repositorio en GITHUB y hacer un push del contenido.
+
+## Crear el layout básico
+
+- Crear la carpeta **\resources\views\layouts**.
+- Agregar el archivo **app.blade.php**.
+
+## Contenido de **app.blade.php**:
+
+app.blade.php debe ser igual a:
+
+```
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>@yield('title') - My App</title>
+        {{-- Stylesheets --}}
+        @yield('styles')
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <h1>Esto es app.blade.php</h1>
+    <hr>
+
+        <header>
+            {{-- Header content --}}
+        </header>
+
+        <main>
+            @yield('content') {{-- Main content area --}}
+        </main>
+
+        <footer>
+            {{-- Footer content --}}
+        </footer>
+
+        {{-- JavaScript files --}}
+        @yield('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    </body>
+    </html>
+```
+
+## Modificar welcome.blade.php extendiendo a app.blade.php:
+
+El contenido de welcome.blade.php debe ser sencillo al principio:
+
+```
+@extends('layouts.app')
+
+@section('title', 'Home Page que armé yo')
+
+@section('content')
+    <h1>Bienvenido al Home Page! (el mío, welcome.blade.php)</h1>
+    <p>This is the main content of the home page.</p>
+    <p>This is the main content of the home page.</p>
+    <p>This is the main content of the home page.</p>
+    <p>This is the main content of the home page.</p>
+
+    <button>Grabar</button>
+    <button>Cargar</button>
+@endsection
+
+@section('scripts')
+    <script src="/js/home-specific.js"></script>
+@endsection
+```
+
+## Cambiar el TIMEZONE:
+
+En **\config\app.php** tenemos que cambiar:
+- **‘timezone’ => ‘UTC’;**
+
+A lo que corresponda, por ejemplo **“America/Argentina/Buenos_Aires”**, elegir desde:
+
+- [Timezones de PHP](https://www.php.net/manual/en/timezones.america.php).
