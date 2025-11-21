@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <title>@yield('title') - My App</title>
+        <title>@yield('title')</title>
         {{-- Stylesheets --}}
         @yield('styles')
 

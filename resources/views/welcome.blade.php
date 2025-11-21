@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home Page que armé yo')
+@section('title', 'pINICIOD')
 
 @section('content')
     <h1>Bienvenido al Home Page! (el mío, welcome.blade.php)</h1>
